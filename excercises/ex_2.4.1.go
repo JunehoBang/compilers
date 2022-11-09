@@ -3,16 +3,6 @@ package main
 // excercise 2.4.1 (b) in page 68
 import "fmt"
 
-func main() {
-	//get the string
-	S := "())"
-	if delim(S) {
-		fmt.Println("Juneho: Compile OK")
-	} else {
-		fmt.Println("Juneho : Syntax error")
-	}
-}
-
 func delim(S string) bool {
 	if len(S) == 0 {
 		return true
@@ -28,4 +18,14 @@ func delim(S string) bool {
 
 func match(S string, c string) bool {
 	return true
+}
+
+func main() {
+	//get the string
+	S := "())"
+	if delim(S) {
+		fmt.Println("Juneho: Compile OK")
+	} else {
+		fmt.Println("Juneho : Syntax error")
+	}
 }
