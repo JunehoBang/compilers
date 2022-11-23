@@ -27,11 +27,13 @@ func (p Parser) getEquation() {
 func (p Parser) expr() error {
 	p.term()
 	for j := 1; j > 0; j++ {
-		if p.lookahead == len(p.eq) {
+		if p.lookahead >= len(p.eq) {
 			return nil
-		} else if p.eq[p.lookahead] == '+' {
+		} else if string(p.eq[p.lookahead]) == "+" {
 
-		} else if p.eq[p.lookahead] == '-' {
+		} else if string(p.eq[p.lookahead]) == "-" {
+			p.match("-")
+			p.match(string(p.eq[p.lookahead]))
 
 		} else {
 			return fmt.Errorf("syntax error")
