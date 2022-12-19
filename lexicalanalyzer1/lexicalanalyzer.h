@@ -13,14 +13,18 @@ using namespace std;
 class Token{
     public:
         int tag;
+        int value;
+        string lexeme;
+
         Token(int t){
             tag = t;
+            value = 0;
+            lexeme = "";
         }
 };
 
 class Num:Token{
     public:
-        int value;
         Num(int v):Token(NUM){
             value = v;
         }
@@ -28,7 +32,6 @@ class Num:Token{
 
 class Word:Token{
     public:
-        string lexeme;
         Word(int t, string s):Token(t){
             lexeme = s;
         }
