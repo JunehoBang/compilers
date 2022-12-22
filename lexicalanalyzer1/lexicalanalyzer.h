@@ -16,28 +16,30 @@ class Token{
         int value;
         string lexeme;
         
-        Token(){tag=0}
-        Token(int t){
-            tag = t;
-        }
+
+        // Token(int t){
+        //     tag = t;
+        //     value = 0;
+        //     lexeme = "";
+        // }
 };
 
-class Num:Token{
-    public:
-        Num(int v):Token(NUM){
-            value = v;
-        }
-};
+// class Num:Token{
+//     public:
+//         Num(int v):Token(NUM){
+//             value = v;
+//         }
+// };
 
-class Word:Token{
-    public:
-        Word(int t, string s):Token(t){
-            lexeme = s;
-        }
-};
+// class Word:Token{
+//     public:
+//         Word(int t, string s):Token(t){
+//             lexeme = s;
+//         }
+// };
 
 typedef Token TOKEN;
-typedef Num NUMV;
-typedef Word WORDV;
-TOKEN* ScanToken(string input, int* peek);
+// typedef Num NUMV;
+// typedef Word WORDV;
+TOKEN ScanToken(string input, int* peek);
 void reserve(string lexeme, TOKEN t);

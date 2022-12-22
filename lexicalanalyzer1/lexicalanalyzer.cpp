@@ -27,8 +27,8 @@ int main(){                     //This is the lexical analyzer
     return 0;
 }
 
-TOKEN* ScanToken(string input, int* peek){
-    TOKEN* t;
+TOKEN ScanToken(string input, int* peek){
+    TOKEN t;
 
     while(*peek<input.length()){
         if(input[*peek]==' '|| input[*peek]=='\t')
@@ -41,12 +41,12 @@ TOKEN* ScanToken(string input, int* peek){
     
     if(isdigit(static_cast<unsigned char>(input[*peek]))){        
         int v = 0;
-        
         do {
             v = v*10 + ((int)input[*peek] - 48); // digits in ASCII code begins with 48. That is, '0'...'9' --> 49 ... 58
             (*peek)++;
         } while(isdigit(static_cast<unsigned char>(input[*peek])));
-        t = new NUMV(v);
+        t.tag =NUM;
+        t.value = v;
         return t;        
     }
 
