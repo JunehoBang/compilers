@@ -7,13 +7,13 @@
 map<string, TOKEN*> words;
 
 int main(){                     //This is the lexical analyzer
-    string input = "2+abs2+42+3";
+    string input = "2+abs2 +42+3";
     int peek=0;
     TOKEN* t;
 
-    TOKEN reserved;
-    // reserved.tag = TRUE;
-    // reserved.lexeme = "true";
+    reserve("true",new WORDV(TRUE,"true"));
+    reserve("false",new WORDV(FALSE,"false"));
+
     while(peek < input.size()){
         t = ScanToken(input, &peek);
         t->printContent();
@@ -34,9 +34,9 @@ TOKEN* ScanToken(string input, int* peek){
 
     while(*peek<input.length()){
         if(input[*peek]==' '|| input[*peek]=='\t')
-            *peek++;
+            (*peek)++;
         else if(input[*peek]=='\n')
-            *peek++;
+            (*peek)++;
         else
             break;
     }
