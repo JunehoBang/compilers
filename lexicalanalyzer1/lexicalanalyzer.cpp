@@ -19,7 +19,7 @@ int main(){                     //This is the lexical analyzer
         t->printContent();
     }
 
-    //flushing the words
+    //flushing the words 
     cout <<endl<<"------words---------"<<endl;
     while(!words.empty()){
         (words.begin())->second->printContent();
@@ -30,7 +30,7 @@ int main(){                     //This is the lexical analyzer
 }
 
 TOKEN* ScanToken(string input, int* peek){
-    TOKEN* t;
+    TOKEN* t; 
 
     while(*peek<input.length()){
         if(input[*peek]==' '|| input[*peek]=='\t')

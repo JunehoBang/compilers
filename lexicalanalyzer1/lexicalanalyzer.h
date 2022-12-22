@@ -45,7 +45,7 @@ class Word : public Token{
             lexeme = s;
         }
         void printContent(){
-            cout<< "<ID," << lexeme << "> ";
+            cout<< "<" << tag << "," << lexeme << "> ";
         }
 
 };
