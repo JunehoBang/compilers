@@ -7,7 +7,7 @@
 map<string, TOKEN*> words;
 
 int main(){                     //This is the lexical analyzer
-    string input = "2+a+42+3";
+    string input = "2+abs2+42+3";
     int peek=0;
     TOKEN* t;
 
@@ -17,8 +17,15 @@ int main(){                     //This is the lexical analyzer
     while(peek < input.size()){
         t = ScanToken(input, &peek);
         t->printContent();
-    }  
+    }
 
+    //flushing the words
+    cout <<endl<<"------words---------"<<endl;
+    while(!words.empty()){
+        (words.begin())->second->printContent();
+        free(words.begin()->second);
+        words.erase(words.begin());
+    }
     return 0;
 }
 
