@@ -15,11 +15,10 @@ class Token{
         int tag;
         int value;
         string lexeme;
-
+        
+        Token(){tag=0}
         Token(int t){
             tag = t;
-            value = 0;
-            lexeme = "";
         }
 };
 
@@ -38,4 +37,7 @@ class Word:Token{
 };
 
 typedef Token TOKEN;
-TOKEN ScanToken(string input, int* peek);
+typedef Num NUMV;
+typedef Word WORDV;
+TOKEN* ScanToken(string input, int* peek);
+void reserve(string lexeme, TOKEN t);
